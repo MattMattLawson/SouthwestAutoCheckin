@@ -1,5 +1,17 @@
-from selenium import webdriver
+from SWA_funs import *
 
-driver = webdriver.Chrome('/Users/matt/Google Drive/SouthwestAutoCheckin/chromedriver')
+'''
+TODO:
+	- Add command line args for confNum, fName, lName
+	- Automatically find flight date and time from confNum, fName, lName (https://www.southwest.com/air/manage-reservation/)
+	- Write scrip to add job to crontab for execution at the proper time
+	- Add ability to detect a 'short name' and turn it into full fName, lName
+	- Ability to text (via number@vzwireless.com) confirmation that they have been checked in and their boarding position
 
-driver.get('https://www.southwest.com/air/check-in/index.html')
+'''
+
+myconfNum = 'RCXB6V'
+myfName = 'Matthew'
+mylName = 'Lawson'
+
+Find_Flight_Time(myconfNum, myfName, mylName)
