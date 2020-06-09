@@ -3,7 +3,7 @@ import time
 
 # Initialize global chrome webdriver for use in all functions
 chrome = webdriver.Chrome('/Users/matt/Google Drive/SouthwestAutoCheckin/chromedriver')
-chrome.set_page_load_timeout(10)
+chrome.implicitly_wait(10)
 
 
 def Find_Flight_Time(myconfNum, myfName, mylName):
@@ -30,7 +30,6 @@ def Find_Flight_Time(myconfNum, myfName, mylName):
 	print(fdh)
 
 
-
 def Checkin(myconfNum, myfName, mylName):
 	chrome.get('https://www.southwest.com/air/manage-reservation/')
 
@@ -49,5 +48,17 @@ def Checkin(myconfNum, myfName, mylName):
 	checkinBtn = chrome.find_element_by_id('form-mixin--submit-button')
 	checkinBtn.click()
 
-	time.sleep(8)
-	chrome.close()
+	checkinXpath1 = "//div[@class='information--content']/a[@aria-label='Check-in link redirects to check in page']"
+	checkinXpath1a = '//*[@id="air-reservation"]/div[2]/div[2]/div[3]/div/div[3]/div/a'
+
+	checkinBtn = chrome.find_element_by_xpath(checkinXpath1)
+	chrome.find_element_by_xpath('/html').send_keys(' ')  # Scroll down the page?
+	time.sleep(1)
+	print(checkinBtn.is_displayed())
+	checkinBtn.click()
+
+	checkinXpath2='//*[@id="swa-content"]/div/div[2]/div/section/div/div/div[3]/button'
+	checkinBtn = chrome.find_element_by_xpath(checkinXpath2)
+	time.sleep(1)
+	print(checkinBtn.is_displayed())
+	checkinBtn.click()

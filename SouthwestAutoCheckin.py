@@ -14,4 +14,5 @@ myconfNum = 'RCXB6V'
 myfName = 'Matthew'
 mylName = 'Lawson'
 
-Find_Flight_Time(myconfNum, myfName, mylName)
+# Find_Flight_Time(myconfNum, myfName, mylName)
+Checkin(myconfNum, myfName, mylName)
