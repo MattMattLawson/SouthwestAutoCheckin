@@ -25,13 +25,13 @@ def Find_Flight_Time(myconfNum, myfName, mylName):
 	checkinBtn.click()
 
 
-	# This doesn't work yet. I am trying to find a way to detect 'Departing', the flight date, and the flight number so that I can retreive the exact checkin time
+	# This doesn't work yet. I am trying to find a way to detect 'Departing', the flight date, and the flight number so that I can retrieve the exact check-in time
 	fdh = chrome.find_element_by_class_name('flight-detail--heading')
 	print(fdh)
 
 
 def Checkin(myconfNum, myfName, mylName):
-	chrome.get('https://www.southwest.com/air/manage-reservation/')
+	chrome.get('https://www.southwest.com/air/check-in/index.html')
 
 	try:
 		confNumField = chrome.find_element_by_id('confirmationNumber')
